@@ -484,7 +484,7 @@
 	.header-element-right{text-align: center;padding-bottom: 0}
 	.tool-header .dispaly-seach:hover form#search_mini_form .form-search{width: 250px}
 	.header-content-right{display: inline-block;}
-	.text-slide, .text-slide3{display: none; visibility: hidden; opacity: 0}
+	.text-slide, .text-slide3{zoom:0.9}
 
 	.block-subscribe .input-box{text-align: center;}
 	.block-subscribe .actions button.button{margin: 0}
@@ -514,7 +514,7 @@
 
 .block_testimonials .bx-wrapper .bx-controls-direction a.bx-prev{left: 30%;}
 .block_testimonials .bx-wrapper .bx-controls-direction a.bx-next{right: 30%;}
-
+.text-slide, .text-slide3{zoom:0.7}
 }
 
 /* IPHONE 4 + 5 Portrait */

@@ -1,0 +1,39 @@
+<?php
+class ElderXavier_Socialnetworks_IndexController extends Mage_Core_Controller_Front_Action {        
+    public function indexAction() {        
+		//echo "Midias sociais";
+		$this->loadLayout();
+        //$this->renderLayout();
+		//$this->loadLayout(array('default'));
+		//$this->renderLayout();		
+		
+		/*$this->getLayout()
+                 ->createBlock("catalog/product_view")
+                 ->setTemplate("catalog/product/view/addto.phtml")
+                 ->toHtml(); ?>*/
+				 
+				 /*$this->getLayout()
+                 ->createBlock("socialnetworks/methods")
+                 ->setTemplate("socialnetworks/socialicons.phtml")
+                 ->toHtml();*/
+				 
+				 $this->loadLayout();
+ 
+$block = $this->getLayout()->createBlock(
+'Mage_Core_Block_Template',
+'socialnetworks',
+array('template' => 'socialnetworks/socialicons.phtml')
+);
+ 
+ echo $block;
+ 
+$this->getLayout()->getBlock('content')->append($block);
+ 
+
+$this->renderLayout();
+
+Zend_Debug::dump($this->getLayout()->getUpdate()->getHandles());
+				 
+		}
+}
+?>

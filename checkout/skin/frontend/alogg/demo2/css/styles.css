@@ -1181,9 +1181,11 @@ ul.magictabs{padding:0; margin: 0}
 .product-view .toggle-tabs{position: relative;text-align: left;margin:0;}
 .product-view .toggle-tabs:after{position: absolute; content: ""; width: 100%; height: 1px; border-bottom:1px solid #efefef; left: 0; bottom: 0; z-index: -1}
 .product-view .toggle-tabs .item {display: inline-block;margin: 0px;color:#808080; font-size:18px;cursor:pointer;text-transform: uppercase;position: relative; font-weight: bold; margin-right: 25px;}
-.product-view .datasheet h2 {display: inline-block;margin: 0px;text-transform: uppercase;position: relative; font-weight: bold; margin-right: 25px;font-size: 13px;font-family: Josefin Sans;color: #020202;border-bottom: 1px solid #020202}
+.product-view .datasheet {margin-bottom: 25px}
+.product-view .datasheet h2, .product-view .box-tags h2 {display: inline-block;margin: 0px;text-transform: uppercase;position: relative; font-weight: bold; margin-right: 25px;font-size: 13px;font-family: Josefin Sans;color: #020202;border-bottom: 1px solid #020202}
 .product-view .datasheet h2:nth-child(2){display: none}
 .product-view .datasheet .std {margin-top: 20px}
+.product-view .datasheet .measurement-tab {margin-top: 25px}
 .product-view .toggle-tabs .item.active,.product-view .toggle-tabs .item:hover{color:#020202; border-bottom: 1px solid #020202}
 .product-collateral h2{display:none}
 .product-collateral h3,.product-collateral h4{color:#666666;font-size:20px;}
@@ -1354,7 +1356,7 @@ ul.magictabs{padding:0; margin: 0}
 .product-view .box-tags .product-tags li{display:inline;background:url(../images/bkg_pipe3.gif) 100% 4px no-repeat;padding:0 7px 0 4px}
 .product-view .box-tags .product-tags li.first{padding-left:0}
 .product-view .box-tags .product-tags li.last{background:none;padding-right:0}
-.product-view .box-tags .form-add label{display:block;font-size:13px;font-weight:normal;margin:0 0 5px;color:#000000}
+.product-view .box-tags .form-add label{display:block;font-size:13px;font-weight:normal;margin:0 0 5px;color:#000000; margin-top: 15px}
 .product-view .box-tags .form-add .input-box{float:left;width:305px;margin:0 5px 0 0;padding:0}
 .product-view .box-tags .form-add input.input-text{width:299px;height:40px;}
 .product-view .box-tags .note{margin:5px 0 0;padding:0;font-size:11px;color:#666}
@@ -1593,8 +1595,20 @@ ul.magictabs{padding:0; margin: 0}
 .opc .buttons-set .please-wait{height:21px;line-height:21px}
 .opc .ul{list-style:disc outside;padding-left:18px}
 .opc{position:relative}
-.opc li.section{margin-top: 10px;display:none}
-.opc li.section.active {display:block}
+@keyframes animateheight {
+  from {opacity: 0}
+    to {opacity: 1}
+}
+@-webkit-keyframes animateheight {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+@-moz-keyframes animateheight {
+    from {height: 1%}
+    to {height: 100%}
+}
+.opc li.section{margin-top: 10px;display:none; opacity: 0}
+.opc li.section.active { overflow: visible; display:block; transition: 0.2s ease-out; animation-name: animateheight; animation-duration: 2s; opacity: 1; -webkit-transition: 0.2s ease-out; -webkit-animation-name: animateheight; -webkit-animation-duration: 2s; -moz-keyframestransition: 0.2s ease-out; -moz-keyframesanimation-name: animateheight; -moz-keyframesanimation-duration: 2s}
 .opc .step-title{text-align:left;line-height:40px; background: none repeat scroll 0 0 #f5f5f6;}
 .opc .step-title .number{background:#dddddd;padding:0;margin:0 10px 0 0;color:#fff;font-size:14px;width:40px;height:40px;text-align:center;}
 .opc .step-title h2{margin:0;color:#000000;font-size:14px;text-transform:uppercase;line-height:40px; margin: 0 15px}
@@ -2096,3 +2110,12 @@ label[for='billing:vat_id'] { display:none }
 .contentmp .step-title h2{margin: 0;color: #000000;font-family: Josefin Sans;font-size: 14px;text-transform: uppercase;line-height: 40px;margin: 0 15px}
 .contentmp #box-mercadopago{padding: 25px;border-right: 1px solid #f5f5f6}
 .contentmp .buttons-set {position: relative;text-align: center;margin: 50px 33% 0 33%}
+#opc-billing .hidden-remove{display: none}
+.disabled input, .disabled select {background:#EEE9E9}
+/*opc-shipping*/
+#opc-billing .form-list .input-box, #opc-shipping .form-list .input-box{ clear:none; padding-right: 20px}
+#opc-billing .form-list input,#opc-billing .form-list select,#opc-shipping .form-list input,#opc-shipping .form-list select {max-width: 50%;margin-left: 20px}
+#opc-billing .form-list label, #opc-shipping .form-list label {width: 35%; text-align: right;line-height: 40px}
+#opc-billing .form-list .control, #opc-shipping .form-list .control {text-align: center; padding-left: 5%}
+#opc-billing .form-list .control label, #opc-shipping .form-list .control label {text-align: left;line-height: 10px}
+#opc-billing .form-list .validation-advice, #opc-shipping .form-list .validation-advice {width: 62%; float: right}

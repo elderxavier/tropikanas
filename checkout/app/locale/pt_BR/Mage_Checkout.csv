@@ -358,11 +358,11 @@
 "Your recurring payment profiles:","Seus perfis de pagamentos recorrentes:"
 "Zip/Postal Code","Zip/Código Postal"
 "ok","ok"
-"We are processing the payment", "Processando pagamento",
+"We are processing the payment.", "Processando pagamento.",
 "In less than an hour we will send you by e-mail the result.","Seu pedio será enviado ao seu e-mail."
 "Your order %s has been successfully generated.","Seu pedido %s foi gerado com sucesso."
 "Payment information","Informações de pagamento"
 "Payment Method: %s","Metodo de pagamento: %s"
-"Payment id (MercadoPago): %s","identificação do pagamento (MercadoPago): %s"
+"Payment id (MercadoPago): %s","Identificação do pagamento (MercadoPago): %s"
 "Payment Status: %s","Status do pagamento: %s"
 "Payment Detail: %s","Detalhes do pagamento: %s"

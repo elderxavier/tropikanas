@@ -1,0 +1,162 @@
+<?php
+class Email_Model{
+
+	function __construct($my_name, $friend_name, $product_name, $product_brand,$product_image,$product_url, $message, $relational_cliente){
+		
+		$this->myname = $my_name;
+		$this->friend_name = $friend_name;  // name friend for send mail
+		$this->product_name = $product_name; // name 
+		$this->product_brand = $product_brand;
+		$this->product_image = $product_image; //
+		$this->product_url = $product_url;
+		$this->message = $message;
+		$this->relational_cliente = $relational_cliente; //
+		
+	}
+	
+
+	function printModel(){	
+$returna='
+
+<div style="background: #565656; padding: 30px; color: #606060;">
+	<table style="margin:0 auto" border="0" cellpadding="0" cellspacing="0" width="600">		
+		<tbody><tr>
+			<td>
+				<table style="background:#fff" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody>					
+					<tr>
+						<td style="background: #000;height: 58px;">
+							<li style=" display:block; background: url('."'http://www.tropikanas.com/skin/frontend/base/default/elderxavier/socialnetwork/image/spriteemail.jpg'".') #000 -70px -5px no-repeat; width: 400px; height: 45px; margin: 12px 1px 10px 100px;"> </li>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<table style="background:#f7f7f7" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td style="text-align:center">
+							<li style=" display:block; background: url('."'http://www.tropikanas.com/skin/frontend/base/default/elderxavier/socialnetwork/image/spriteemail.jpg'".') -5px -58px no-repeat; width: 537px; height: 32px; margin: 1px 1px 1px 27px;"> </li>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table>
+								<tbody><tr>
+									<td width="330">
+										<h2 style="text-align:center">Olá '.$this->friend_name .' </h2> <br>
+										<p style="margin-left:5px;font-family:Calibri;font-size:18px;text-align:center">
+										Seu amigo(a) '.$this->myname.' encontrou um produto na Tropiknas e achou a sua cara! <br><br>
+										<a href="'.$this->product_url.'" style="font-weight:bold;color:#444" target="_blank">Clique aqui</a> para visualizar o produto.
+										</p> <br>
+										<p style="font-family:Georgia;font-style:italic;color:#e36b93;font-size:18px;text-align:center;width:310px;margin-left:5px">
+											<span>"'.$this->message.'."</span>
+										</p>
+										<p style="font-family:Georgia;font-style:italic;color:#e36b93;font-size:18px;text-align:right;width:310px;margin-left:5px">
+											<span>'.$this->myname.'</span>
+										</p>
+									</td>
+									<td>
+										<img src="'.$this->product_image.'" height="194" width="193" alt="" class="CToWUd a6T" tabindex="0">
+										<div class="a6S" dir="ltr" style="opacity: 0.01; left: 542.5px; top: 335px;">
+											<div id=":29t" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" title="Fazer o download" role="button" tabindex="0" aria-label="Fazer o download do anexo " data-tooltip-class="a1V">
+												<div class="aSK J-J5-Ji aYr"></div>
+											</div>
+										</div>
+										<p>
+											<span><strong>'.$this->product_brand.'</strong></span><br>
+											<span>'.$this->product_name.'</span>
+										</p>
+									</td>
+								
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<a href="'.$this->product_url.'" target="_blank">
+								<li style=" display:block; background: url('."'http://www.tropikanas.com/skin/frontend/base/default/elderxavier/socialnetwork/image/spriteemail.jpg'".') -5px -90px no-repeat; width: 537px; height: 32px; margin: 1px 1px 10px 27px;"> </li>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" style="font-family: Calibri;font-size: 18px;text-align: center; margin: 10px 10px 10px 10px; height: 45px;background-color: #FFF;">
+					  		<spam style="background:#f7f7f7;padding: 5px;">
+					  			<a href="'.$this->product_url.'" target="_blank" style="color:#606060">Clique aqui</a>  
+					  			para visualizar o produto
+					  		</spam>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr style="background:#f7f7f7">
+			<td>
+				<table width="100%">
+					<tbody><tr>
+						<td style="border-top:5px solid #000;">
+							<table width="100%" cellspacing="0" cellpadding="0" border="0">
+								<tbody><tr>
+									<td>
+										<table width="250px" style="margin-left:15px">
+											<tbody><tr>
+												<td><span style="font-family:Open Sans;font-size:18px;float:left">Siga-nos:</span></td>
+												<td>
+													<a href="#" target="_blank">
+														<li style=" display:block; background: url('."'http://www.tropikanas.com/skin/frontend/base/default/elderxavier/socialnetwork/image/spriteemail.jpg'".') -75px -142px no-repeat; width: 25px; height: 25px;"> </li>
+													</a>
+												</td>
+												<td>
+													<a href="https://www.facebook.com/lojaTropikanas" target="_blank">
+														<li style=" display:block; background: url('."'http://www.tropikanas.com/skin/frontend/base/default/elderxavier/socialnetwork/image/spriteemail.jpg'".') -107px -142px no-repeat; width: 25px; height: 25px;"> </li>
+													</a>
+												</td>
+												<td>
+													<a href="http://www.pinterest.com" target="_blank">
+														<li style=" display:block; background: url('."'http://www.tropikanas.com/skin/frontend/base/default/elderxavier/socialnetwork/image/spriteemail.jpg'".') -140px -142px no-repeat; width: 25px; height: 25px;"> </li>
+													</a>
+												</td>
+												<td>
+													<a href="http://www.youtube.com/" target="_blank">
+														<li style=" display:block; background: url('."'http://www.tropikanas.com/skin/frontend/base/default/elderxavier/socialnetwork/image/spriteemail.jpg'".') -172px -142px no-repeat; width: 25px; height: 25px;"> </li>													</a>
+												</td>
+												
+											</tr>
+										</tbody></table>
+									</td>
+									<td style="float:left;margin:0 0 0 50px" width="210"> 
+										<span style="font-family:Open Sans;font-size: 26px;">   
+											<a href="http://www.tropikanas.com/" target="_blank" style="text-decoration: none;color: #606060;">
+												www.tropikanas.com
+											</a>
+										</span>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+					
+				</tbody></table>
+			</td>
+		</tr>
+		
+	</tbody></table><div class="yj6qo"></div><div class="adL">
+	
+	
+
+</div></div> ';
+
+return $returna;
+	}
+}
+?>

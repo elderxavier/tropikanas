@@ -1,0 +1,30 @@
+<layout>
+
+    <!-- this adds the block to the ation -->
+    <socialnetworks_index_index>
+        <!--
+		<reference name="root">
+                <action method="setTemplate"><template>page/1column.phtml</template></action>
+            </reference>
+			-->
+            <reference name="content">
+			
+			<block type="core/template" name="left.category.list" template="category/left_cat.phtml"/>
+			<block type="catalog/product_view" name="product.info" template="catalog/product/view.phtml"> </block>
+                <!--<block type="socialnetworks/methods" name="socialnetworks" template="socialnetworks/socialicons.phtml"/>
+				<block type="core/template" name="socialnetworks" template="socialnetworks/socialicons.phtml"/>
+				-->
+            </reference>
+    </socialnetworks_index_index>
+
+
+    <!-- this change the layout of the action 
+    <helloworld_index_goodbye>
+        <block
+            type="page/html"
+            name="root"
+            template="tinyapps/helloworld/fancy_hello.phtml"
+        />
+    </helloworld_index_goodbye>
+	-->
+</layout>

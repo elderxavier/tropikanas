@@ -1,0 +1,60 @@
+<?php 
+	$currentUrl = Mage::helper('core/url')->getCurrentUrl();	
+?>
+
+<div class="social-icons">
+        <nav id="social">
+            <ul>
+				<li><a href="javascript:facebookPopup()" title="Compartilhe este produto no Facebook"><span class="font-icon-social-facebook"></span></a></li>				
+                <!--<li><a href="javascript:twitterPopup()" title="Compartilhe este produto no Twitter" target="_blank"><span class="font-icon-social-twitter"></span></a></li>-->                				
+				<li><a href="javascript:addthisLink()" title="Compartilhe estes produto em diversas rede sociais" target="_blank"><span class="font-icon-heart"></span></a></li>                				
+				<li id="pintrest-li"><span class="font-icon-social-pinterest"></span><a href="//br.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-shape="round"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_16.png" /></a></li>								
+                <li><a href="javascript:void(0)" id="link-modal-email" title="Envie este produto a uma amiga"><span class="font-icon-email"></span></a></li>
+            </ul>
+           </nav>		   		   
+    </div>
+<!-- Please call pinit.js only once per page -->
+<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+<div class="window-modal-mail">
+<div class="email-window">	
+		<div class="email-windows-top"><span class="email-windows-top-close"></span></div>
+		<div class="email-windows-body">
+			<div class="email-windows-body-top">
+				<p><strong>Esse produto é a cara da sua amigo?</strong></p>
+				<p>Indique enviando um e-mail.</p>
+				<p><span class="fraseAviso">Para enviar para mais de um amigo, separe os e-mails com ponto e vírgula (;)</span></p>
+			</div>
+		<form id="email-windows-form">			
+				<ul>
+				   <li id="txtAmigaLi" ><input type="text" title="Nome da amiga" id="txtAmigaId" class="email-window-input" name="txtAmiga" placeholder="Nome do seu amigo(a)" maxlength="128" tabindex="1" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome do seu amigo(a)'"/></li>
+				   <li id="emailAmigaLi"><input type="text" title="Email da amiga" id="emailAmigaId" class="email-window-input validate-email" name="emailAmiga" placeholder="Email do seu amigo(a)" maxlength="128" tabindex="2" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email do seu amigo(a)'"/></li>
+				   <li id="txtNomeLi"><input type="text" title="Seu nome" id="txtNomeId" class="email-window-input" name="txtNome" placeholder="Seu nome" maxlength="128" tabindex="3" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seu nome'"/></li>
+				   <li id="emaitxtlLi"><input type="text" title="Seu email" id="emaitxtlId" class="email-window-input validate-email" name="emailtxt" placeholder="Seu email" maxlength="128"tabindex="4" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seu email'"/></li>
+				   <li id="txtMensagemLi"><textarea name="txtMensagem" rows="12" cols="20" class="email-window-input" id="txtMensagemId" tabindex="5" autocomplete="Off" placeholder="Mensagem" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mensagem'" ></textarea></li>
+				 </ul>
+				<div class="email-window-button-div">
+					<span>
+					<!--<button class="button" id="email-window-button-id" class="email-window-input" title="Enviar"><span><span>Enviar</span></span></button>-->
+					<a href="javascript:void(0)" id="email-window-button-id" title="">Enviar</a>
+					<!--<a href="javascript:void(0)" id="email-window-button-id2" title="">Enviar</a>-->
+					</span>
+				</div>
+								
+							
+		</form>
+		</div>
+	</div>
+	<div id="msg-box">
+		<div id="msg-box-inner">
+		</div>
+		<span id="msg-box-p">
+			<a id="msg-box-a" class="submit" href="javascript:hidenMessagebox()">OK</a>
+		</span>
+	</div>	
+	
+	<div id="mascara"></div>
+	<div id="socialicons-loading"></div>
+<script type="text/javascript" src="http://www.tropikanas.com/skin/frontend/base/default/elderxavier/socialnetwork/js/socialicons-main.js"></script>
+</div>
+	

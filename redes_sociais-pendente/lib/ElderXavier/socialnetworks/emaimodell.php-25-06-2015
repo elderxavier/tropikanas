@@ -1,0 +1,143 @@
+<?php
+class Email_Model{
+
+	function __construct($my_name, $friend_name, $product_name, $product_brand,$product_image,$product_url, $message, $relational_cliente){
+		
+		$this->myname = $my_name;
+		$this->friend_name = $friend_name;  // name friend for send mail
+		$this->product_name = $product_name; // name 
+		$this->product_brand = $product_brand;
+		$this->product_image = $product_image; //
+		$this->product_url = $product_url;
+		$this->message = $message;
+		$this->relational_cliente = $relational_cliente; //
+		
+	}
+	
+
+	function printModel(){	
+$returna='
+<div>	
+	<table style="margin:0 auto" border="0" cellpadding="0" cellspacing="0" width="600">		
+		<tbody><tr>
+			<td>
+				<table style="background:#fff" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td style="font-size:12px;font-family:Calibri;color:#444;text-align:center">
+							<span>
+								Este e-mail foi enviado automaticamente pelo sistema. <strong>Favor não responder</strong>.
+								<br> Para enviar um e-mail 
+								<a href="'.$this->relational_cliente.'" target="_blank">clique aqui</a></span>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td><img src="https://ci5.googleusercontent.com/proxy/FJ338EVbJRa5-go3ASH19jvjy2vM-4MQAf_Jcg7si7QFq96b7hEqE7X5rjvUfXEZmmCCwZ6N9fGUF89K4s5dFKdQmJaaAKCcQzHvEGwqPIv03_5BMNUW6WDYkQ=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/logo-topo.png" alt="" class="CToWUd"></td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<table style="background:#f7f7f7" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td style="text-align:center"><img src="https://ci4.googleusercontent.com/proxy/BOZPVIhRSyWYEiQnZqqU8O9m8YtT8U_azffdltWNz6hiNLVXGuPH8wphUQpwMKkmwFYi7ukBUoR59tH10ncME7LHLhiPT3EpqNEfXivltyM2j98sXFfsqOo=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/bg_home.png" alt="" height="28" width="582" class="CToWUd"></td>
+					</tr>
+					<tr>
+						<td>
+							<table>
+								<tbody><tr>
+									<td width="330">
+										<h2 style="text-align:center">Olá '.$this->friend_name .' </h2> <br>
+										<p style="margin-left:5px;font-family:Calibri;font-size:18px;text-align:center">
+										Seu amigo(a) '.$this->myname.' encontrou um produto na Tropiknas e achou a sua cara! <br><br>
+										<a href="'.$this->product_url.'" style="font-weight:bold;color:#444" target="_blank">Clique aqui</a> para visualizar o produto.
+										</p> <br>
+										<p style="font-family:Georgia;font-style:italic;color:#e36b93;font-size:18px;text-align:center;width:310px;margin-left:5px">
+											<span>"'.$this->message.'."</span>
+										</p>
+										<p style="font-family:Georgia;font-style:italic;color:#e36b93;font-size:18px;text-align:right;width:310px;margin-left:5px">
+											<span>'.$this->myname.'</span>
+										</p>
+									</td>
+									<td>
+										<img src="'.$this->product_image.'" height="194" width="193" alt="" class="CToWUd a6T" tabindex="0">
+										<div class="a6S" dir="ltr" style="opacity: 0.01; left: 542.5px; top: 335px;">
+											<div id=":29t" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" title="Fazer o download" role="button" tabindex="0" aria-label="Fazer o download do anexo " data-tooltip-class="a1V">
+												<div class="aSK J-J5-Ji aYr"></div>
+											</div>
+										</div>
+										<p>
+											<span><strong>'.$this->product_brand.'</strong></span><br>
+											<span>'.$this->product_name.'</span>
+										</p>
+									</td>
+								
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center"><a href="'.$this->product_url.'" target="_blank">
+							<img src="https://ci6.googleusercontent.com/proxy/ejFMmHdJEB_ctLwyLr52IINx2Bv2upZEDAt5NhRVwJgI_zXudIIZeeE_xGpzGLqHo9om3SekHpR0ufqQUaOTtkgEq3w5RZ_nQfyg1mhX8rdw5275VIbbp32EOORFew=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/btn_shop_now.png" alt="" height="34" width="584" class="CToWUd"></a></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<table width="100%">
+					<tbody><tr>
+						<td style="border-top:5px solid #000;border-bottom:2px dotted #ccc">
+							<table width="100%" cellspacing="0" cellpadding="0" border="0">
+								<tbody><tr>
+									<td>
+										<table width="250px" style="margin-left:15px">
+											<tbody><tr>
+												<td><span style="color:#666;font-family:Open Sans;font-size:12px;float:left">Siga-nos:</span></td>
+												<td><a href="https://www.facebook.com/oqvestir" target="_blank"><img src="https://ci3.googleusercontent.com/proxy/saKQv7tRnmdWZjvoN4ASB73DSu65cV4SpoijxV-ktWLUTUxXWfVacygVcPgw6XvemvtdEaP4iZ4CgwbKSudSgVLxEIrYpktXPxNBvOhmoUscbLCmK4PkC2I8=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/facebook.png" alt="" class="CToWUd"></a></td>
+												<td><a href="http://twitter.com/oqvestir" target="_blank"><img src="https://ci3.googleusercontent.com/proxy/frOu5QCRCEHd-auPriPdtyUjeFmUzKaWEZgqllrjQe9tORT13bGb9ibbEtZ9Oh2rFBtuDa_ve9Pl8ntP9flYW6YcK3NtvrY3rej8peHGkFf_-OX_1EjsLvE=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/twitter.png" alt="" class="CToWUd"></a></td>
+												<td><a href="http://instagram.com/oqvestir" target="_blank"><img src="https://ci6.googleusercontent.com/proxy/CKGDjJqAmEOE8XzEN4N-i4XBVcqOwQgvQRi77Jd2X8zSVLgDHG9rJYQB2Oc6zYNER-Q-1CmX8tjgvX2o7qb-B6A4FC849Yy_cFOSbpi90-aZ3OfmduhEytO58w=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/instagram.png" alt="" class="CToWUd"></a></td>
+												<td><a href="http://www.youtube.com/OQVestir" target="_blank"><img src="https://ci5.googleusercontent.com/proxy/Uwvkee7pntJ58CT7nTof7TxE4WKl5AmM5YC9yxKUmRefbtkZhkY1xuwK7edTZ4FvEbCMOgaZh9rXbzYaRsW01gH3J0Vh-VgqZVZGDo3Wfn8-el4i4-zSDko=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/youtube.png" alt="" class="CToWUd"></a></td>
+												<td><a href="http://www.pinterest.com/oqvestir/" target="_blank"><img src="https://ci6.googleusercontent.com/proxy/nPOdTJUIoA6NayU4QE16jO4W8Cld1f582SlI9GnPzCTuMr2SJ_UKKmvk6iMOUwCMLHq7hcnuwhAvpZN_Azkm0-BuYFmz0VYtvnt2SjeoM_GOBLcIxKuiE-cvtw=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/pinterest.png" alt="" class="CToWUd"></a></td>
+											</tr>
+										</tbody></table>
+									</td>
+									<td style="float:right;margin:5px 15px 0 0" width="210"><img src="https://ci4.googleusercontent.com/proxy/c3pisANy4Cu22AvOOOBvB7LnUr7vFEdTKHViO01jWXXNEXVouVU2mIQ6w54A_0MKL0wd73R5NGM_HL5AtopqI4YiM7c56avsp90Gg4jh-D10bcY7tiSZ=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/balao.png" alt="" style="float:left" class="CToWUd"> <span style="color:#666;font-family:Open Sans;font-size:12px;float:left;margin:5px"><strong>Chat:</strong> <a href="http://www4.directtalk.com.br/chat/?idd=8BEB001650FFB0031420" target="_blank">Tire sua dúvida Online</a></span></td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td style="border-bottom:2px dotted #ccc;color:#666;font-family:Open Sans;font-size:12px;text-align:center;padding:10px 0"><strong>Central de Relacionamento: <img src="https://ci3.googleusercontent.com/proxy/01Tt4UB81Bnx9jlxZEKU4Dmxjsvjv-pxfw-2AiTLPut6g1-pAyJq9ZBJRjZTbtMONWQIAdK0l0XTcAFD2KNu21FTZ2QarX2tcVF5qSbSkIsC5PP9Vg=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/tel.png" alt="" class="CToWUd"></strong><br> 2ª à 6ª feira das 8 às 20h - Sábados e feriados regionais das 9 às 15h.</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<p style="color:#666;font-family:Open Sans;font-size:12px;width:100%">Formas de pagamento: <img src="https://ci5.googleusercontent.com/proxy/OAXT6PAlUf0qBbdSfgpLhyQJJw99VyixlLVTOha9OePJf7x1sm_cv51_eRo6B_1isZqY8U3pk6cJqbz4_NM6RcME-mpXQiGBYS9ziHW0NNXs0rDNnmJfLEeeQ18=s0-d-e1-ft#http://www.oqvestir.com.br/Templates/Email/images-email/pagamentos.png" alt="" class="CToWUd"></p>
+							<p style="color:#666666;font-family:Open Sans;font-size:12px;margin-top:0;width:100%"><span style="text-transform:uppercase">parcele suas compras em até <strong>12x sem juros*</strong></span> <br> <small style="text-transform:capitalize">*Com PayPal</small></p>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+	</tbody></table><div class="yj6qo"></div><div class="adL">
+	
+	
+
+</div></div>';
+
+return $returna;
+	}
+}
+?>

@@ -1,0 +1,234 @@
+<?php 
+	$currentUrl = Mage::helper('core/url')->getCurrentUrl();	
+?>
+
+<div class="social-icons">
+        <nav id="social">
+            <ul>
+				<li><a href="javascript:facebookPopup()" title="Compartilhe este produto no Facebook"><span class="font-icon-social-facebook"></span></a></li>				
+                <li><a href="javascript:twitterPopup()" title="Compartilhe este produto no Twitter" target="_blank"><span class="font-icon-social-twitter"></span></a></li>                				
+				<li><a href="javascript:addthisLink()" title="Compartilhe estes produto em diversas rede sociais" target="_blank"><span class="font-icon-heart"></span></a></li>                				
+				<li id="pintrest-li"><span class="font-icon-social-pinterest"></span><a href="//br.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-shape="round"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_16.png" /></a></li>								
+                <li><a href="javascript:void(0)" id="link-modal-email" title="Envie este produto a uma amiga"><span class="font-icon-email"></span></a></li>
+            </ul>
+           </nav>		   		   
+    </div>
+<!-- Please call pinit.js only once per page -->
+<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+<div class="window-modal-mail">
+
+
+<script type="text/javascript">			
+			var valid;
+			$jq(document).ready(function(){				
+				
+				$jq("#link-modal-email").click( function(evt){
+					valid =0;
+					evt.preventDefault();
+					var alturaTela = $jq(document).height();
+					var larguraTela = $jq(window).width();					
+					$jq('#mascara').css({'width':larguraTela,'height':alturaTela,'opacity':'0.8'});					
+					$jq('#mascara').fadeIn(1000);	
+					$jq('#mascara').fadeTo("slow",0.8);							
+					$jq('#mascara').show();					
+					$jq('.email-window').fadeIn(2000);
+					$jq('.email-window').fadeTo("slow",1);
+ 				});
+				
+				$jq("#mascara").click( function(evt){
+					evt.preventDefault();
+					$jq('#mascara').fadeOut(1000);					
+					$jq('.email-window').fadeOut(1000);					
+					$jq('.email-window').hiden();		
+					$jq('#mascara').hiden();	
+				});
+				$jq(".email-windows-top-close").click( function(evt){
+					evt.preventDefault();
+					$jq('#mascara').fadeOut(1000);					
+					$jq('.email-window').fadeOut(1000);					
+					$jq('.email-window').hiden();		
+					$jq('#mascara').hiden();	
+				});
+				$jq(document).keydown(function (evt) {					
+					if(evt.which == 27){
+						$jq('#mascara').fadeOut(1000);												
+						$jq('.email-window').fadeOut(1000);						
+						$jq('.email-window').hiden();						
+						$jq('#mascara').hiden();
+						return false;
+				}
+			});	
+			
+			/*Valida campos*/
+			$jq("#email-window-button-id").click( function(evt){
+				valid =0;
+				$jq('.email-window-input').each(function(){					
+						var nameId = $jq(this).parent().attr('id');					
+						var elementthis = document.getElementById(nameId);
+						var messagethis = "Este é um campo obrigatorio";
+					if($jq(this).val() != ""){
+						valid=1;
+						ret=true
+					}else{
+						valid=0;
+						removeValidator(nameId);
+						$jq(this).addClass('required-entry validation-failed');						
+						//elementthis.addClass('required-entry validation-failed');
+						addValidator(elementthis,messagethis);
+						ret= false;
+					}
+				});
+				
+				
+					datainputs = "";
+					cont = 0;
+					$jq('.email-window-input').each(function(){
+					validclass = $jq(this).attr('class');					
+					if(validclass == "email-window-input validate-email required-entry validation-failed"){
+						//alert(validclass);
+						valid=0;
+					}
+					
+						if(cont ==0){
+							datainputs+=$jq(this).attr('id')+'='+ $jq(this).val();
+						}else{
+							datainputs+="&"+$jq(this).attr('id')+'='+ $jq(this).val();
+						}
+						cont++;
+					});
+				if(valid!=0){					
+					sendEmail(datainputs);
+				}
+				return ret;
+				
+			});	
+			$jq('.email-window-input').change(function() {				
+				var nameId = $jq(this).parent().attr('id');									
+				$jq(this).removeClass('required-entry validation-failed');
+				removeValidator(nameId);
+			});			
+			$jq('.validate-email').change(function(evt) {								
+				txt = $jq(this).val();
+				if(!validaEmail(txt)){					
+					var nameId = $jq(this).parent().attr('id');					
+						var elementthis = document.getElementById(nameId);
+						var messagethis = "Por favor digite um email valido";
+						$jq(this).addClass('required-entry validation-failed');
+						addValidator(elementthis,messagethis);
+						return false;
+				}
+				
+			});				
+			/*
+			$jq('#email-window-button-id2').click( function(evt){
+					datainputs = "";
+					cont = 0;
+					$jq('.email-window-input').each(function(){
+						if(cont ==0){
+							datainputs+=$jq(this).attr('id')+'='+ $jq(this).val();
+						}else{
+							datainputs+="&"+$jq(this).attr('id')+'='+ $jq(this).val();
+						}
+						cont++;
+					});					
+					sendEmail(datainputs);
+			});*/
+
+		});
+		
+		/*valida campos*/
+		function addValidator(element,message) {
+				var node = document.createElement("div");
+				node.className = "validation-advice";
+				var textnode = document.createTextNode(message);
+				node.appendChild(textnode);
+				//document.getElementById("email-windows-form").appendChild(node);
+				element.appendChild(node);
+			}
+			function removeValidator(element) {
+				var list = document.getElementById(element);
+				if(list.childNodes[1]){
+				list.removeChild(list.childNodes[1]);
+				}
+			}
+		/*valida email*/	
+		function validaEmail(email){
+				var str = email;
+				var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+				if(filtro.test(str)) {					
+					valid = 1;
+					return true;
+					
+				} else {				
+				valid = 0;
+				return false;				
+				}
+			}	
+		/*Envia email*/
+		function sendEmail(datainputs){
+		$jq.ajax({
+				type      : 'post', 
+				url       : "http://www.tropikanas.com/socialnetworks/index/email",	
+				data	  : datainputs, 					
+				dataType  : 'html', 
+				success: function( txt ){					
+					retornar = txt;					
+					alert(retornar);					
+				},
+				error:function( txt ){
+					alert("erro:" + txt);
+				}
+				});
+		}
+		
+		//pop Facebook
+		function facebookPopup(){									
+			window.open("https://www.facebook.com/sharer/sharer.php?app_id=309437425817038&sdk=joey&u=<?php echo $currentUrl;?>", "nome", "width=680, height=680, scrollbars='no', location=no, directories=no, status=no, menubar=no, toolbar=no, resizable=no");
+		}
+		
+		//pop Twitter
+		function twitterPopup(){									
+			window.open("http://twitter.com/home?status=Tropikanas%20%20<?php echo $currentUrl;?>", "nome", "width=600, height=600, scrollbars='no', location=no, directories=no, status=no, menubar=no, toolbar=no, resizable=no");
+		}
+		function addthisLink(){
+		window.open('http://www.addthis.com/bookmark.php?v=250&winname=addthis&pub=ra-5560de9c6ccfd725&source=tbx32-300&lng=pt&s=settings&url=<?php echo $currentUrl;?>&title='+document.title,'_blank');
+		}
+		</script>
+<div class="email-window">	
+		<div class="email-windows-top"><span class="email-windows-top-close"></span></div>
+		<div class="email-windows-body">
+			<div class="email-windows-body-top">
+				<p><strong>Esse produto é a cara da sua amigo?</strong></p>
+				<p>Indique enviando um e-mail.</p>
+				<p><span class="fraseAviso">Para enviar para mais de um amigo, separe os e-mails com ponto e vírgula (;)</span></p>
+			</div>
+		<form id="email-windows-form">			
+				<ul>
+				   <li id="txtAmigaLi" ><input type="text" title="Nome da amiga" id="txtAmigaId" class="email-window-input" name="txtAmiga" placeholder="Nome da sua amiga" maxlength="128" tabindex="1" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome da sua amiga'"/></li>
+				   <li id="emailAmigaLi"><input type="text" title="Email da amiga" id="emailAmigaId" class="email-window-input validate-email" name="emailAmiga" placeholder="Email da sua amiga" maxlength="128" tabindex="2" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email da sua amiga'"/></li>
+				   <li id="txtNomeLi"><input type="text" title="Seu nome" id="txtNomeId" class="email-window-input" name="txtNome" placeholder="Seu nome" maxlength="128" tabindex="3" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seu nome'"/></li>
+				   <li id="emaitxtlLi"><input type="text" title="Seu email" id="emaitxtlId" class="email-window-input validate-email" name="emailtxt" placeholder="Seu email" maxlength="128"tabindex="4" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seu email'"/></li>
+				   <li id="txtMensagemLi"><textarea name="txtMensagem" rows="12" cols="20" class="email-window-input" id="txtMensagemId" tabindex="5" autocomplete="Off" placeholder="Mensagem" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mensagem'" ></textarea></li>
+				 </ul>
+				<div class="email-window-button-div">
+					<span>
+					<!--<button class="button" id="email-window-button-id" class="email-window-input" title="Enviar"><span><span>Enviar</span></span></button>-->
+					<a href="javascript:void(0)" id="email-window-button-id" title="">Enviar</a>
+					<!--<a href="javascript:void(0)" id="email-window-button-id2" title="">Enviar</a>-->
+					</span>
+				</div>
+								
+							
+		</form>
+		</div>
+	</div>
+
+
+		
+<div id="mascara"></div>
+
+
+
+</div>
+	

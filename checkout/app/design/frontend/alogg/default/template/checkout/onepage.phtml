@@ -86,21 +86,23 @@
         <li id="opc-<?php echo $_stepId ?>" class="section<?php echo!empty($_stepInfo['allow']) ? ' allow' : '' ?><?php echo!empty($_stepInfo['complete']) ? ' saved' : '' ?>">
             <div class="step-title">
                 <span class="number"><?php echo $i ?></span>
-                <?php switch ($i) {
-                            case 1:
-                             echo "<h2>".$this->__('Identificação')."</h2>";
-                                break;
-                            case 2:
-                             echo "<h2>".$this->__('Endereço')."</h2>";
-                                break;                            
-                            default:
-                                echo "<h2>". $_stepInfo['label']."</h2>";
-                                break;
-                        }?>                
+                <?php
+                switch ($i) {
+                    case 1:
+                        echo "<h2>" . $this->__('Identificação') . "</h2>";
+                        break;
+                    case 2:
+                        echo "<h2>" . $this->__('Endereço') . "</h2>";
+                        break;
+                    default:
+                        echo "<h2>" . $_stepInfo['label'] . "</h2>";
+                        break;
+                }
+                ?>                
                 <a href="#"><?php echo $this->__('Edit') ?></a>
             </div>
             <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
-    <?php echo $this->getChildHtml($_stepId) ?>
+        <?php echo $this->getChildHtml($_stepId) ?>
             </div>
         </li>
 <?php endforeach ?>
@@ -116,6 +118,117 @@
         review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
-    );    
+    );
 //]]>
 </script>
+<style>
+    #modal_dontknowcep .modal-dialog {
+        z-index: 9999;
+        position: fixed;
+        left: 5%;
+        right: 5%;
+    }
+    #modal_dontknowcep .modal-header, #modal_dontknowcep .modal-footer {
+        border: none;
+    }
+    #link_modal_dontknowcep{
+        float: right;
+        margin-right: 13%;
+    }
+    .modal h4{
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    .modal .modal-header{
+        background: #f5f5f6;
+    }    
+    .modal .form-group{
+        padding: 15px;
+    }    
+</style>
+<script>    
+    
+    
+    
+    
+    
+</script>
+<!-- Modal -->
+<div id="modal_dontknowcep" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Não sei meu CEP</h4>
+            </div>
+            <div class="modal-body">
+                <form>        
+                    <div class="float-label form-group"> 
+                        <label class="col-sm-2" for="dontknowcep_endereco">Endereço</label> 
+                        <div class="col-sm-10"> 
+                            <div class="has-feedback"> 
+                                <input type="text" class="form-control" name="dontknowcep_endereco" id="dontknowcep_endereco">        
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="float-label form-group"> 
+                        <label class="col-sm-2" for="dontknowcep_cidade">Cidade</label> 
+                        <div class="col-sm-10"> 
+                            <div class="has-feedback"> 
+                                <input type="text" class="form-control" name="dontknowcep_cidade" id="dontknowcep_cidade">        
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="float-label form-group"> 
+                        <label class="col-sm-2" for="dontknowcep_estado">Estado</label> 
+                        <div class="col-sm-10"> 
+                            <div class="has-feedback"> 
+                                <select  name="dontknowcep_estado" id="dontknowcep_estado">
+                                    <option value="" class="">Selecione </option>
+                                    <option value="AC" label="AC">AC</option>
+                                    <option value="AL" label="AL">AL</option>
+                                    <option value="AM" label="AM">AM</option>
+                                    <option value="AP" label="AP">AP</option>
+                                    <option value="BA" label="BA">BA</option>
+                                    <option value="CE" label="CE">CE</option>
+                                    <option value="DF" label="DF">DF</option>
+                                    <option value="ES" label="ES">ES</option>
+                                    <option value="GO" label="GO">GO</option>
+                                    <option value="MA" label="MA">MA</option>
+                                    <option value="MG" label="MG">MG</option>
+                                    <option value="MS" label="MS">MS</option>
+                                    <option value="MT" label="MT">MT</option>
+                                    <option value="PA" label="PA">PA</option>
+                                    <option value="PB" label="PB">PB</option>
+                                    <option value="PE" label="PE">PE</option>
+                                    <option value="PI" label="PI">PI</option>
+                                    <option value="PR" label="PR">PR</option>
+                                    <option value="RJ" label="RJ">RJ</option>
+                                    <option value="RN" label="RN">RN</option>
+                                    <option value="RO" label="RO">RO</option>
+                                    <option value="RR" label="RR">RR</option>
+                                    <option value="RS" label="RS">RS</option>
+                                    <option value="SC" label="SC">SC</option>
+                                    <option value="SE" label="SE">SE</option>
+                                    <option value="SP" label="SP">SP</option>
+                                    <option value="TO" label="TO">TO</option>
+                                </select>
+                            </div> 
+                        </div> 
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" onclick="dontKnowcep();">Pesquisar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+

@@ -22,6 +22,7 @@
  * @package     Mage_CatalogSearch
  * @copyright  Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @last-update Elder Xavier elderxavier.com.br
  */
 
 
@@ -146,8 +147,8 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      */
     public function setListCollection()
     {
-//        $this->getListBlock()
-//           ->setCollection($this->_getProductCollection());
+        $this->getListBlock()
+           ->setCollection($this->_getProductCollection());
        return $this;
     }
 
@@ -169,7 +170,8 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
     protected function _getProductCollection()
     {
         if (is_null($this->_productCollection)) {
-            $this->_productCollection = $this->getListBlock()->getLoadedProductCollection();
+            //$this->_productCollection = $this->getListBlock()->getLoadedProductCollection();
+            $this->_productCollection = Mage::getSingleton('catalogsearch/layer')->getProductCollection();
         }
 
         return $this->_productCollection;

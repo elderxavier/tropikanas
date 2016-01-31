@@ -478,7 +478,7 @@ tr.summary-details-excluded{font-style:italic}
 .header .header-top-right ul{margin: 0}
 .header .header-search{margin: 0px;background-image:none; cursor: pointer;}
 .header-setting .label-title { color: #444;font-weight: normal; margin-top: 18px;font-size: 11px; padding: 0;text-transform: uppercase;}
-.header .header-top .label-title{padding: 0px 18px; font-size: 14px; font-weight: normal; line-height: 14px; border-right: 1px solid #020202}
+.header .header-top .label-title{padding: 0px 18px; font-size: 14px; font-weight: normal; line-height: 14px}
 .header .header-top .header-top-link .label-title{padding-left: 0px}
 .header .header-top .label-title:after{color: #020202;content: "\f078";font-family: FontAwesome;font-size: 10px;margin-left: 5px;text-align: left;}
 .header .header-top-left ul li:hover a,.header .header-top-left ul li:hover span,.header .header-top-left ul li:hover{color: #020202}

@@ -1,12 +1,3 @@
-.precoparcelado-table {
-    width: 200px;
-}
-
-.precoparcelado-table thead th {
-    border: solid 1px;
-    text-align: center;
-}
-
-.precoparcelado-table tbody td {
-    border: solid 1px;
-}
+.precoparcelado-table {width: 100px}
+.precoparcelado-table thead th {border: none; text-align: center}
+.precoparcelado-table tbody td {border: none; text-align: left; width: 50px !important}

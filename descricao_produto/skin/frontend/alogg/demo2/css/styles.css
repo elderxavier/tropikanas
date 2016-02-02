@@ -1192,7 +1192,10 @@ ul.magictabs{padding:0; margin: 0}
 .add-to-box .add-to-links li .separator{display:none!important}
 .product-view .toggle-tabs{position: relative;text-align: left;margin:0;}
 .product-view .toggle-tabs:after{position: absolute; content: ""; width: 100%; height: 1px; border-bottom:1px solid #efefef; left: 0; bottom: 0; z-index: -1}
-.product-view .toggle-tabs .item{display: inline-block;margin: 0px;color:#808080; font-size:18px;cursor:pointer;text-transform: uppercase;position: relative; font-weight: bold; margin-right: 25px;}
+.product-view .toggle-tabs .item {display: inline-block;margin: 0px;color:#808080; font-size:18px;cursor:pointer;text-transform: uppercase;position: relative; font-weight: bold; margin-right: 25px;}
+.product-view .datasheet h2 {display: inline-block;margin: 0px;text-transform: uppercase;position: relative; font-weight: bold; margin-right: 25px;font-size: 13px;font-family: Josefin Sans;color: #020202;border-bottom: 1px solid #020202}
+.product-view .datasheet h2:nth-child(2){display: none}
+.product-view .datasheet std {margin-top: 25px}
 .product-view .toggle-tabs .item.active,.product-view .toggle-tabs .item:hover{color:#020202; border-bottom: 1px solid #020202}
 .product-collateral h2{display:none}
 .product-collateral h3,.product-collateral h4{color:#666666;font-size:20px;}

@@ -170,17 +170,23 @@ productAddToCartForm<?php
             </form>
         </div>
         <script type="text/javascript">
-            //<![CDATA[
+            //<![CDATA[                        
             var productAddToCartForm = new VarienForm('product_addtocart_form');
             productAddToCartForm.submit = function (button, url) {
+                var qty = 1;
+                if(document.getElementById('qty').value > 1){
+                    qty = document.getElementById('qty').value;                    
+                }                
+                qtyItem = "qty/"+ qty;
                 if (this.validator.validate()) {
                     var form = this.form;
-                    var oldUrl = form.action;
+                    var oldUrl = form.action + qtyItem;                    
                     if (url) {
-                        form.action = url;
+                        form.action = url;                        
                     }
                     var e = null;
-                    try {
+                    try {                        
+                        this.form.action = this.form.action + "" + qtyItem;                        
                         this.form.submit();
                     } catch (e) {
                     }
@@ -193,7 +199,7 @@ productAddToCartForm<?php
                     }
                 }
             }.bind(productAddToCartForm);
-            productAddToCartForm.submitLight = function (button, url) {
+            productAddToCartForm.submitLight = function (button, url) {                
                 if (this.validator) {
                     var nv = Validation.methods;
                     delete Validation.methods['required-entry'];
@@ -209,6 +215,7 @@ productAddToCartForm<?php
                         if (url) {
                             this.form.action = url;
                         }
+                        this.form.action = this.form.action + "" + qtyItem;
                         this.form.submit();
                     }
                     Object.extend(Validation.methods, nv);

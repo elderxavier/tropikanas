@@ -21,28 +21,64 @@
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
-<head>
-<?php echo $this->getChildHtml('head') ?>
-</head>
-<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
-<?php echo $this->getChildHtml('after_body_start') ?>
-<div class="wrapper">
-    <?php echo $this->getChildHtml('global_notices') ?>
-    <div class="page">
-        <?php echo $this->getChildHtml('header') ?>
-        <div class="main-container col1-layout">
-            <div class="main">
-                <?php echo $this->getChildHtml('breadcrumbs') ?>
-                <div class="col-main">
-                    <?php echo $this->getChildHtml('global_messages') ?>
-                    <?php echo $this->getChildHtml('content') ?>
-                </div>
+    <head>
+        <?php echo $this->getChildHtml('head') ?>
+    </head>
+    <body<?php echo $this->getBodyClass() ? ' class="' . $this->getBodyClass() . '"' : '' ?>>
+        <?php echo $this->getChildHtml('after_body_start') ?>
+        <div class="wrapper">
+            <?php echo $this->getChildHtml('global_notices') ?>
+            <div class="page">        
+                <div class="container">
+                    <div class="row">
+                        <div class="checkout-top onsucessmp">
+                            <div class="progress-logo">
+                                <img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="logotipo loja Tropikanas"/>
+                            </div>
+                            <div class="checkout-top-div1">
+                                <div class="progress-itens col-lg-9">
+                                    <ul>                                
+                                        <li class="item-1"><div class="active"></div><span><i class="fa fa-shopping-cart checked"></i></span></li>
+                                        <li class="item-2"><div class="active"></div><span><i class="fa fa-user checked"></i></span></li>
+                                        <li class="item-3"><div class="active"></div><span><i class="fa fa-credit-card checked"></i></span></li>
+                                        <li class="item-4"><div></div><span><i class="fa fa-check checked"></i></span></li>
+                                    </ul>
+                                </div>    
+                                <div class="progress-itens-text col-lg-9">
+                                    <ul>
+                                        <li class="item-1"><span><a href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>"> Carrinho de Compras </a></span></li>
+                                        <li><span>Identificação</span></li>
+                                        <li><span>Pagamento</span></li>
+                                        <li><span>Obrigado</span></li>
+                                    </ul>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="container">
+                            <div class="row contentmp">
+                                <div class="step-title">
+                                    <h2><?php echo $this->__('Pedido finalizado')?></h2>
+                                </div>
+                                <div class="col2-set">
+                                    <div class="col-1 min-h200">
+                                        <div class="center-block">
+                                            <?php echo $this->getChildHtml('global_messages') ?>
+                                            <?php echo $this->getChildHtml('content') ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-1 min-h200">
+                                        <div class="buttons-set">                                    
+                                            <button type="submit" class="button" onclick="window.location.href='<?php echo Mage::getBaseUrl($type = Mage_Core_Model_Store::URL_TYPE_LINK, $secure = null)?>'"><span><span><?php echo $this->__('Continuar Comprando') ?></span></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <?php echo $this->getChildHtml('before_body_end') ?>
             </div>
         </div>
-        <?php echo $this->getChildHtml('footer') ?>
-        <?php echo $this->getChildHtml('before_body_end') ?>
-    </div>
-</div>
-<?php echo $this->getAbsoluteFooter() ?>
-</body>
+        <?php echo $this->getAbsoluteFooter() ?>
+    </body>
 </html>

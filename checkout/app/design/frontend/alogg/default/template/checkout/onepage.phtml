@@ -24,37 +24,98 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="page-title">
-    <h1><?php echo $this->__('Checkout') ?></h1>
+<div class="checkout-top">
+    <div class="progress-logo">
+        <img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="logotipo loja Tropikanas"/>
+    </div>
+    <div class="checkout-top-div1">
+        <div class="progress-itens col-lg-9">
+            <ul>                                
+                <li class="item-1"><div class="active"></div><span><i class="fa fa-shopping-cart checked"></i></span></li>
+                <li class="item-2"><div></div><span><i class="fa fa-user checked"></i></span></li>
+                <li class="item-3"><div></div><span><i class="fa fa-credit-card"></i></span></li>
+                <li class="item-4"><div></div><span><i class="fa fa-check"></i></span></li>
+            </ul>
+        </div>    
+        <div class="progress-itens-text col-lg-9">
+            <ul>
+                <li class="item-1"><span><a href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>"> Carrinho de Compras </a></span></li>
+                <li><span>Identificação</span></li>
+                <li><span>Pagamento</span></li>
+                <li><span>Obrigado</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="checkout-top-div2">
+        <div class="progress-itens col-lg-9">
+            <ul>
+                <li>
+                    <div id="label-progress">
+                        <span id="label-progress-span">compra sem cadastro</span>
+                    </div>                
+                </li> 
+                <li class="item-1"><div class="active"></div></li>
+                <li class="item-2"><div></div></li>
+                <li class="item-3"><div></div></li>
+                <li class="item-4"><div></div><span><i class="fa fa-check"></i></span></li>
+            </ul>
+        </div>    
+        <div class="progress-itens-text col-lg-9">
+            <ul>
+                <li><span>&nbsp;</span></li>
+                <li class="item-1"><span><a href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>"> Carrinho de Compras </a></span></li>
+                <li><span id="add-state-name">Identificação</span></li>
+                <li><span id="add-state-name-after">Pagamento</span></li>
+                <li><span>Obrigado</span></li>
+            </ul>
+        </div>
+    </div>   
 </div>
 <script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
 <ol class="opc" id="checkoutSteps">
-<?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
-<?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
-    <li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
-        <div class="step-title">
-            <span class="number"><?php echo $i ?></span>
-            <h2><?php echo $_stepInfo['label'] ?></h2>
-            <a href="#"><?php echo $this->__('Edit') ?></a>
-        </div>
-        <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
-            <?php echo $this->getChildHtml($_stepId) ?>
-        </div>
-    </li>
+    <?php
+    $i = 0;
+    foreach ($this->getSteps() as $_stepId => $_stepInfo):
+        ?>
+        <?php
+        if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue;
+        endif;
+        $i++
+        ?>
+        <li id="opc-<?php echo $_stepId ?>" class="section<?php echo!empty($_stepInfo['allow']) ? ' allow' : '' ?><?php echo!empty($_stepInfo['complete']) ? ' saved' : '' ?>">
+            <div class="step-title">
+                <span class="number"><?php echo $i ?></span>
+                <?php switch ($i) {
+                            case 1:
+                             echo "<h2>".$this->__('Identificação')."</h2>";
+                                break;
+                            case 2:
+                             echo "<h2>".$this->__('Endereço')."</h2>";
+                                break;                            
+                            default:
+                                echo "<h2>". $_stepInfo['label']."</h2>";
+                                break;
+                        }?>                
+                <a href="#"><?php echo $this->__('Edit') ?></a>
+            </div>
+            <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
+    <?php echo $this->getChildHtml($_stepId) ?>
+            </div>
+        </li>
 <?php endforeach ?>
 </ol>
 <script type="text/javascript">
 //<![CDATA[
     var accordion = new Accordion('checkoutSteps', '.step-title', true);
-    <?php if($this->getActiveStep()): ?>
-    accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
-    <?php endif ?>
-    var checkout = new Checkout(accordion,{
+<?php if ($this->getActiveStep()): ?>
+        accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
+<?php endif ?>
+    var checkout = new Checkout(accordion, {
         progress: '<?php echo $this->getUrl('checkout/onepage/progress') ?>',
         review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
-    );
+    );    
 //]]>
 </script>

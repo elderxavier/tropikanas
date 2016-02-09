@@ -51,7 +51,7 @@ Accordion.prototype = {
 
         if(section.id != this.currentSection) {
             this.closeExistingSection();
-            this.currentSection = section.id;                        
+            this.currentSection = section.id;
             $(this.currentSection).addClassName('active');
             var contents = Element.select(section, '.a-item');
             contents[0].show();
@@ -68,7 +68,6 @@ Accordion.prototype = {
                     }
                 }
             }
-            controlTop(section.id);
         }
     },
 
@@ -110,70 +109,4 @@ Accordion.prototype = {
             this.closeSection(this.currentSection);
         }
     }
-}
-/*Control topcheckout*/
-cliente = "Cliente";
-function controlTop(opcid){    
-        switch (opcid) {
-        case "opc-billing":
-            stateViewShow(cliente, 'Dados de entrega', 'Endereço');            
-            break;
-        case "opc-shipping":
-            stateViewShow(cliente, 'Endereço', 'Tipo de Frete');            
-            break;
-        case "opc-shipping_method":
-            stateViewShow(cliente, 'Tipo de Frete', 'Pagamento');
-            break;
-        case "opc-payment":
-            stateViewHidden();
-            jQuery('.checkout-top-div1 .item-3 .fa').addClass('checked');            
-            jQuery('.checkout-top-div1 .item-2 div').addClass('active');          
-            break;
-        case "opc-review":
-            jQuery('.checkout-top-div2 .item-2 div').addClass('active');
-            stateViewShow(cliente, 'Revisar pedido', 'Finalizar compra');
-            break;
-    }
- }  
-
-function stateViewShow(label, name, after){
-    jQuery('#label-progress-span').html(label);    
-    jQuery('#add-state-name').animate({
-     opacity: '0',
-     margin: '0 -50px'
-   },{     
-     duration: 500,
-     complete: function(){
-        jQuery('#add-state-name').html(name);        
-        jQuery('#add-state-name').css('margin',"0 50px");
-        jQuery('#add-state-name').animate({
-            opacity: '1',
-            margin: '0'
-          },{     
-            duration: 1000            
-       });
-    }
-});   
-jQuery('#add-state-name-after').animate({
-     opacity: '0',     
-     margin: '0 -50px'
-   },{     
-     duration: 500,
-     complete: function(){
-        jQuery('#add-state-name-after').html(after);
-        jQuery('#add-state-name-after').css('margin',"0 50px");
-        jQuery('#add-state-name-after').animate({
-            opacity: '1',
-            margin: '0'
-          },{     
-            duration: 1000            
-       });
-    }
-});    
-    jQuery('.checkout-top-div1').css('display','none');
-    jQuery('.checkout-top-div2').css('display','block');
-}
-function stateViewHidden(){
-    jQuery('.checkout-top-div2').css('display','none');
-    jQuery('.checkout-top-div1').css('display','block');
 }

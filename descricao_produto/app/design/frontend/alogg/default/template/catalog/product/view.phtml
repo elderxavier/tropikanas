@@ -235,27 +235,21 @@
             //]]>
         </script>
     </div>    
-    <?php $detailscollection = $this->getChildGroup('detailed_info', 'getChildHtml');?>            
-        <div class="datasheet">                        
-            <?php if ($title = $this->getChildData('description', 'title')): ?>                    
-                <h2><?php echo $this->escapeHtml($title); ?></h2>                    
-            <?php endif;
-            print_r($detailscollection['description']);
-            unset($detailscollection['description']);?>
-        </div>    
-    <div class="product-wapper-tab clearfix">
-        <div class="product-collateral">            
+    <?php $detailscollection = $this->getChildGroup('detailed_info', 'getChildHtml');?>    
+    <!--<div class="product-wapper-tab clearfix">
+        <div class="product-collateral">-->    
             <?php foreach ($detailscollection as $alias => $html): ?>            
-                <div class="box-collateral <?php echo "box-{$alias}" ?>">
+                <!-- <div class="box-collateral <?php //echo "box-{$alias}" ?>"> -->
+            <div class="datasheet">
                 <?php if ($title = $this->getChildData($alias, 'title')): ?>                    
                     <h2><?php echo $this->escapeHtml($title); ?></h2>                    
                 <?php endif; ?>                    
                 <?php echo $html; ?>                    
                 </div>            
             <?php endforeach; ?>
-        <?php echo $this->getChildHtml('product_additional_data') ?>
-        </div>
-    </div>
+        <?php echo $this->getChildHtml('product_additional_data') ?>        
+    <!--</div>
+    </div>-->    
     <div class="products-sku">
         <span class="text-sku">C&oacute;digo do Produto:</span>
 <?php echo $sku = Mage::getModel('catalog/product')->load($_product->getId())->getSku(); ?>

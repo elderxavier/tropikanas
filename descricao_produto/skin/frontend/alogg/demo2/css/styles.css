@@ -1,6 +1,5 @@
 ﻿/**
- * Magento
- *
+ * Magento *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License (AFL 3.0)
@@ -21,9 +20,7 @@
  * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
-
 /* Reset ================================================================================= */
-
 body{}
 img{border:0;vertical-align:top}
 a{color:#1e7ec8;outline:medium none}
@@ -52,9 +49,7 @@ cite{font-style:normal}
 q,blockquote{quotes:none}
 q:before,q:after{content:''}
 small,big{font-size:1em}
-/*sup{font-size:1em;vertical-align:top}
-*/
-
+/*sup{font-size:1em;vertical-align:top}*/
 /* Lists */
 ul,ol{list-style:none;padding: 0;}
 /*li{list-style-type: none;}*/
@@ -75,8 +70,6 @@ ul,ol{list-style:none;padding: 0;}
 .no-margin{margin:0!important}
 .no-padding{padding:0!important}
 .no-bg{background:none!important}
-/* ======================================================================================= */
-
 /* Layout ================================================================================ */
 .wrapper{overflow:hidden;}
 .page{}
@@ -115,10 +108,7 @@ ul,ol{list-style:none;padding: 0;}
 .col4-set .col-2{float:left;width:23.5%;margin:0 2%}
 .col4-set .col-3{float:left;width:23.5%}
 .col4-set .col-4{float:right;width:23.5%}
-/* ======================================================================================= */
-
 /* Global Styles ========================================================================= */
-
 /* Form Elements */
 input,select,textarea,button{vertical-align:middle;color:#2f2f2f}
 input.input-text,select,textarea{background:#fff;border:1px solid #eeeeee;}
@@ -153,7 +143,6 @@ p.control input.checkbox,p.control input.radio{margin-right:6px}
 /* Form Highlight */
 input.input-text:focus,select:focus,textarea:focus{background-color:#fff}
 /* Form lists */
-
 /* Grouped fields */
 .form-list li{margin:0 0 8px}
 .form-list label{float:left;color:#020202;font-weight:400;position:relative;z-index:0}
@@ -236,7 +225,6 @@ p.required{font-size:11px;text-align:right;color:#EB340A}
 .breadcrumbs li{display:inline-block;background-color:transparent;text-transform: capitalize; padding-right: 10px}
 .breadcrumbs li.home{background:none;padding-left:0; }
 .breadcrumbs li.home a, .breadcrumbs li a, .breadcrumbs li strong{font-size: 14px; font-weight: normal; color: #020202}
-
 .breadcrumbs ul{margin:0; padding: 0;}
 .breadcrumbs .home:before{content: "\f015"; display: inline-block; font-family: FontAwesome; padding-right: 5px;font-size: 16px; color: #020202;width: 0; height: 0; text-rendering: auto;-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;transform: translate(0, 0);}
 .breadcrumbs li:before{content: ""; margin-right: 10px; width: 5px; height: 5px; display: inline-block; background-color: #3b3b3b; transform: rotate(45deg); -moz-transform: rotate(45deg); -webkit-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg);}
@@ -1195,7 +1183,7 @@ ul.magictabs{padding:0; margin: 0}
 .product-view .toggle-tabs .item {display: inline-block;margin: 0px;color:#808080; font-size:18px;cursor:pointer;text-transform: uppercase;position: relative; font-weight: bold; margin-right: 25px;}
 .product-view .datasheet h2 {display: inline-block;margin: 0px;text-transform: uppercase;position: relative; font-weight: bold; margin-right: 25px;font-size: 13px;font-family: Josefin Sans;color: #020202;border-bottom: 1px solid #020202}
 .product-view .datasheet h2:nth-child(2){display: none}
-.product-view .datasheet std {margin-top: 25px}
+.product-view .datasheet .std {margin-top: 20px}
 .product-view .toggle-tabs .item.active,.product-view .toggle-tabs .item:hover{color:#020202; border-bottom: 1px solid #020202}
 .product-collateral h2{display:none}
 .product-collateral h3,.product-collateral h4{color:#666666;font-size:20px;}
@@ -1597,18 +1585,19 @@ ul.magictabs{padding:0; margin: 0}
 .opc-block-progress dt a,.opc-block-progress dt .separator{display:none}
 .opc .buttons-set{margin-top:0;padding-top:1em;padding-bottom:1em;margin: 0;}
 .opc .buttons-set p.required{margin:0;padding:0 0 10px;margin:0!important}
-.opc .buttons-set a.f-left{float:right!important;color:#ff0000;text-decoration:none}
-.opc .buttons-set a.f-left:hover{color:#f2bc4d}
+.opc forgotpassword{float:right!important;color:#ff0000;text-decoration:none}
+.opc forgotpassword:hover{color:#f2bc4d}
 .opc .buttons-set .back-link small{display:none}
 .opc .buttons-set .back-link a{background:url(../images/i_arrow-top.gif) 0 50% no-repeat;padding-left:16px}
 .opc .buttons-set.disabled button.button{display:none}
 .opc .buttons-set .please-wait{height:21px;line-height:21px}
 .opc .ul{list-style:disc outside;padding-left:18px}
 .opc{position:relative}
-.opc li.section{margin-top: 10px;}
+.opc li.section{margin-top: 10px;display:none}
+.opc li.section.active {display:block}
 .opc .step-title{text-align:left;line-height:40px; background: none repeat scroll 0 0 #f5f5f6;}
 .opc .step-title .number{background:#dddddd;padding:0;margin:0 10px 0 0;color:#fff;font-size:14px;width:40px;height:40px;text-align:center;}
-.opc .step-title h2{margin:0;color:#000000;font-size:14px;text-transform:uppercase;line-height:40px;}
+.opc .step-title h2{margin:0;color:#000000;font-size:14px;text-transform:uppercase;line-height:40px; margin: 0 15px}
 .opc .step-title a{display:none;float:right;font-size:11px;line-height:16px}
 .opc .allow .step-title{color:#a4b3b9;cursor:pointer}
 .opc .allow .step-title .number{margin-right: 10px;background:#dddddd;color:#fff}
@@ -1619,10 +1608,11 @@ ul.magictabs{padding:0; margin: 0}
 .opc .step{background:#fff;padding: 15px;position:relative;border: 1px solid #f5f5f6;}
 .opc .step .tool-tip{right:30px}
 #opc-login .buttons-set{border-top:0}
-#opc-login h3{font-size:15px;padding-bottom:2px;text-transform:capitalize;color:#000;font-weight:300}
+#opc-login h3{font-size:18px;padding-bottom:2px;color:#000;font-weight:300}
 #opc-login p{font-size:13px;color:#ff0000;margin:0 0 5px}
-#opc-login h4{font-size:13px;font-weight:300;margin:0;color:#000000;margin:0 0 10px;}
+#opc-login h4{font-size:15px;font-weight:300;margin:0;color:#000000;margin:0 0 10px;}
 #opc-login .step .ul li{color:#888888;font-size:13px;font-weight:300}
+#opc-login .step .ul .control{visibility:hidden}
 #opc-shipping_method .buttons-set{border-top:0}
 .opc .gift-messages-form{margin:0 -30px;background:#f6f1eb;border:1px solid #e9e4de;border-width:1px 0;padding:22px 24px 22px 30px}
 .opc .gift-messages-form .inner-box{padding:5px;height:260px;overflow:auto}
@@ -2057,7 +2047,52 @@ dd.color{padding-left: 5px}
 .block-footer-bottom .links{float: left;}
 .block-footer-bottom .links, .block-footer-bottom .paypal{padding: 35px 0}
 .block-footer-bottom .footer{padding: 65px 0 15px; }
-
 .product-view .box-collateral .box-additional{
 display: block;
 }
+/*checkout-top*/
+@keyframes animateprogress {
+  from {background:#efefef}
+    to {background:#000}
+}
+@-webkit-keyframes animateprogress {
+    from {background:#efefef}
+    to {background:#000}
+}
+@-moz-keyframes animateprogress {
+    from {background:#efefef}
+    to {background:#000}
+}
+.checkout-top .progress-itens .active {background:#000; transition: 0.2s ease-out; animation-name: animateprogress;animation-duration: 2s; -webkit-transition: 0.2s ease-out;-webkit-animation-name: animateprogress; -webkit-animation-duration: 2s; -moz-transition: 0.2s ease-out; -moz-animation-name: animateprogress;-moz-animation-duration: 2s}
+.checkout-top .progress-itens .checked {color: #000 !important; background: #eee !important}
+.checkout-top {border:1px solid; height:8.563em;margin:-25px 0 0 0;overflow: hidden}
+.checkout-top .fa{ font-size: 28px !important;border-radius: 50%;background: #f5f5f6;padding: 10px 15px;border: 1px solid #f5f5f6; color:#bbb}
+.checkout-top .checkout-top-div2{display: none}
+.checkout-top .progress-logo {width: 25%; float: left;position:relative;padding: 2% 15px 0 15px;}
+.checkout-top .progress-itens ul {width: 100%; position:relative;margin:5% 0 0 0}
+.checkout-top .progress-itens ul li div { width: 100%; padding: 2px; background:#efefef}
+.checkout-top .progress-itens ul li:last-child div{background: none !important}
+.checkout-top .progress-itens ul li span {position: absolute;margin: -25px 0 0 -2px}
+.checkout-top .progress-itens-text ul {width: 100%; position:relative;margin: 0}
+.checkout-top .progress-itens-text{margin: 25px 0 0 0}
+.checkout-top-div1 .progress-itens ul li {width: 25%; display: inline-block}
+.checkout-top-div2 .progress-itens ul li {width: 20%; display: inline-block}
+.checkout-top-div1 .progress-itens-text ul li {width: 25%; display: inline-block}
+.checkout-top-div2 .progress-itens-text ul li {width: 20%; display: inline-block}
+.progress-itens #label-progress{width: 16%; height: 3.125em;padding: 12px 0;text-align: center; background: #eee; position: absolute; margin-top: -20px}
+.progress-itens #label-progress-span {position: relative}
+.checkout-onepage-index .number{display: none}
+.clear{clear: both}
+.opc .buttons-set a.f-left{float:right!important;color:#ff0000;text-decoration:none}
+.opc .buttons-set a.f-left:hover{color:#f2bc4d}
+#checkout-step-login .buttons-set .button{float: none;width: 100%}
+.min-h200{min-height: 200px}
+#checkout-step-login .border-lr{border-left: 1px solid #f5f5f6;border-right: 1px solid #f5f5f6; padding: 0 15px}
+input[name='billing[vat_id]'] { display:none }
+label[for='billing:vat_id'] { display:none }
+.onsucessmp {margin: 5px}
+.contentmp {border: 1px solid #f5f5f6}
+.contentmp .step-title{padding: 0;color: #a4b3b9;cursor: default;border: 0 none;text-align: left;line-height: 40px;background: none repeat scroll 0 0 #f5f5f6;width: 100%;margin: 0 0 10px}
+.contentmp .step-title h2{margin: 0;color: #000000;font-family: Josefin Sans;font-size: 14px;text-transform: uppercase;line-height: 40px;margin: 0 15px}
+.contentmp #box-mercadopago{padding: 25px;border-right: 1px solid #f5f5f6}
+.contentmp .buttons-set {position: relative;text-align: center;margin: 50px 33% 0 33%}

@@ -2137,8 +2137,9 @@ label[for='billing:vat_id'] { display:none }
     .section.active thead{display: none}
     #checkout-step-login .col3-set div{width: 100%;border:none;margin: 0;padding: 15px 0}
     #checkout-step-login .buttons-set{position: relative;width: 100%}
+    .checkout-top-div1{width: 95%;margin-right: -3%;margin-top: 5px}
     .checkout-top-div2{width: 95%;margin-right: -10px}
-    .progress-itens #label-progress{width: 26%}    
+    .progress-itens #label-progress{width: 26%; padding: 5px}    
     #checkout-step-billing .wide label{max-height: 48px;overflow: hidden}
     #opc-billing .form-list .control label, #opc-shipping .form-list .control label{line-height: 15px}
     #logo-mercadopago{margin: 0 41%}   

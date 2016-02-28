@@ -58,8 +58,11 @@
                     <?php echo $this->getChildHtml('persistent.remember.me'); ?>
                 </ul>
                 <input name="context" type="hidden" value="checkout" />
-            </fieldset>
+            </fieldset>            
         </form>
+        <div class="buttons-set">            
+            <button type="submit" class="button" onclick="onepageLogin(this)"><span><span><?php echo $this->__('Continue') ?></span></span></button>
+        </div>
     </div>
     <div class="col-2 min-h200 border-lr">
         <h3><?php echo $this->__('Não tenho cadastro') ?> </h3>
@@ -74,33 +77,26 @@
             <?php else: ?>
                 <input type="hidden" name="checkout_method" id="login:register" value="register" checked="checked" />
             <?php endif; ?>
+            <div class="buttons-set">                        
+                <button id="onepage-guest-register-button" type="button" class="button" onclick="cliente = 'Cadastro de cliente';
+                    document.getElementById('login:register').checked = true;
+                    checkout.setMethod();"><span><span><?php echo $this->__('Criar cadastro') ?></span></span></button>            
+            </div>
     </div>   
     <div class="col-3 min-h200">
         <h3>&nbsp</h3>        
         <h4><?php echo $this->__('Comprar sem cadastro') ?> </h3>
-        <ul class="ul">
-            <li><?php echo $this->__('Não precisa criar login') ?></li>
-            <li><?php echo $this->__('Disponível somente para pessoas fisícas') ?></li> 
-            <li class="control"><input type="radio" name="checkout_method" id="login:guest" value="guest" class="radio" /></li>            
-        </ul>            
+            <ul class="ul">
+                <li><?php echo $this->__('Não precisa criar login') ?></li>
+                <li><?php echo $this->__('Disponível somente para pessoas fisícas') ?></li> 
+                <li class="control"><input type="radio" name="checkout_method" id="login:guest" value="guest" class="radio" /></li>            
+            </ul>            
+        <div class="buttons-set">                        
+            <button id="onepage-guest-register-button" type="button" class="button" onclick="cliente = 'Compra sem cadastro';
+                    document.getElementById('login:guest').checked = true;
+                    checkout.setMethod();"><span><span><?php echo $this->__('Comprar sem cadastro') ?></span></span></button>            
+        </div>
     </div>   
-</div>
-<div class="col3-set">
-    <div class="col-1">
-        <div class="buttons-set">            
-            <button type="submit" class="button" onclick="onepageLogin(this)"><span><span><?php echo $this->__('Continue') ?></span></span></button>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="buttons-set">                        
-            <button id="onepage-guest-register-button" type="button" class="button" onclick="cliente = 'Cadastro de cliente';document.getElementById('login:register').checked = true;checkout.setMethod();"><span><span><?php echo $this->__('Criar cadastro') ?></span></span></button>            
-        </div>
-    </div>
-    <div class="col-3">
-        <div class="buttons-set">                        
-            <button id="onepage-guest-register-button" type="button" class="button" onclick="cliente = 'Compra sem cadastro';document.getElementById('login:guest').checked = true;checkout.setMethod();"><span><span><?php echo $this->__('Comprar sem cadastro') ?></span></span></button>            
-        </div>
-    </div>
 </div>
 <script type="text/javascript">
 //<![CDATA[
@@ -126,13 +122,13 @@ $registerParam = $this->getRequest()->getParam('register');
 if ($registerParam || $registerParam === ''):
     ?>
     <script type="text/javascript">
-    //<![CDATA[
+        //<![CDATA[
         document.observe("dom:loaded", function () {
             if ($('login:register')) {
                 $('login:register').checked = true;
                 checkout.setMethod();
             }
         })
-    //]]>
+        //]]>
     </script>
 <?php endif; ?>

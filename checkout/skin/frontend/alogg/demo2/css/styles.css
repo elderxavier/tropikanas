@@ -40,7 +40,7 @@ fieldset{border:0}
 legend{display:none}
 /* Table */
 table{border:0;/*border-collapse:collapse;*/
- border-spacing:0;empty-cells:show;font-size:100%}
+      border-spacing:0;empty-cells:show;font-size:100%}
 caption,th,td{vertical-align:middle;text-align:left;font-weight:normal}
 /* Content */
 strong{font-weight:bold}
@@ -408,14 +408,14 @@ tr.summary-details-excluded{font-style:italic}
 /*.header-container-fixed {position: fixed; width: 100%; z-index: 10000;top:0; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); }*/
 .header-container-fixed {position: fixed; width: 100%; z-index: 10000; top:0;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); animation-duration: 450ms; animation-delay: 0.5s; animation-fill-mode: both; animation-name: fadeInDown;}
 @keyframes fadeInDown {
-0% {
-    opacity: 0;
-    transform: translate3d(0px, -100%, 0px);
-}
-100% {
-    opacity: 1;
-    transform: none;
-}
+    0% {
+        opacity: 0;
+        transform: translate3d(0px, -100%, 0px);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
 }
 .catalog-product-view .header-container-fixed {z-index: 99999;}
 .header-container-fixed .header .top-form-language .lang-switcher:hover .dropdown-switcher, .header-container-fixed .header .currency_top .currency-switcher:hover .dropdown-switcher, .header-container-fixed .header .header-setting .settting-switcher:hover .dropdown-switcher, .header-container-fixed .header .header-search .search-switcher:hover .dropdown-switcher {top: 56px;}
@@ -518,7 +518,7 @@ tr.summary-details-excluded{font-style:italic}
 /********** < Navigation */
 #nav{font-size:13px;margin:0}
 /* All Levels */
- 
+
 /* Style consistent throughout all nav levels */
 #nav li{position:relative;text-align:left}
 #nav li.over{z-index:998}
@@ -1581,12 +1581,12 @@ ul.magictabs{padding:0; margin: 0}
 .block-progress .cards-list .info-table th{font-weight:normal}
 /* show/hide "change" link for progress step depend on complete status
  * should be placed in .css file */
- .checkout-onepage-success .col-right{padding-top: 25px;}
+.checkout-onepage-success .col-right{padding-top: 25px;}
 .checkout-onepage-index .main-container { padding-top: 30px;}
 .opc-block-progress dt.complete a,.opc-block-progress dt.complete .separator{display:inline}
 .opc-block-progress dt a,.opc-block-progress dt .separator{display:none}
-.opc .buttons-set{margin-top:0;padding-top:1em;padding-bottom:1em;margin: 0;}
-.opc .buttons-set p.required{margin:0;padding:0 0 10px;margin:0!important}
+.opc .buttons-set{margin-top:0;padding-top:1em;padding-bottom:1em;margin: 0;text-align: center}
+.opc .buttons-set p.required{margin:0;padding:0 0 10px;margin:0!important; text-align: center}
 .opc forgotpassword{float:right!important;color:#ff0000;text-decoration:none}
 .opc forgotpassword:hover{color:#f2bc4d}
 .opc .buttons-set .back-link small{display:none}
@@ -1596,7 +1596,7 @@ ul.magictabs{padding:0; margin: 0}
 .opc .ul{list-style:disc outside;padding-left:18px}
 .opc{position:relative}
 @keyframes animateheight {
-  from {opacity: 0}
+    from {opacity: 0}
     to {opacity: 1}
 }
 @-webkit-keyframes animateheight {
@@ -1620,6 +1620,7 @@ ul.magictabs{padding:0; margin: 0}
 .opc .active .step-title .number{background:#333;margin-right: 10px;color:#fff}
 .opc .active .step-title h2{}
 .opc .step{background:#fff;padding: 15px;position:relative;border: 1px solid #f5f5f6;}
+.section .buttons-set button.button {float:none}
 .opc .step .tool-tip{right:30px}
 #opc-login .buttons-set{border-top:0}
 #opc-login h3{font-size:18px;padding-bottom:2px;color:#000;font-weight:300}
@@ -2008,9 +2009,9 @@ ul.magictabs{padding:0; margin: 0}
 .block-content .swatch-link.has-image img, .category-products-grid .swatch-link.has-image img{height: 100%;width: 100%;border-radius: 0;}
 .block-content .swatch-link.has-image .swatch-label, .category-products-grid .swatch-link.has-image .swatch-label {overflow: hidden;vertical-align: middle;}
 @media only screen and (max-width: 770px) {
-  #narrow-by-list dd .configurable-swatch-list li:nth-child(odd) {
-    clear: none;
-  }
+    #narrow-by-list dd .configurable-swatch-list li:nth-child(odd) {
+        clear: none;
+    }
 }
 .currently .swatch-current {position: relative;}
 .currently .swatch-current .btn-remove {margin-top: -5px;top: 50%;}
@@ -2062,11 +2063,11 @@ dd.color{padding-left: 5px}
 .block-footer-bottom .links, .block-footer-bottom .paypal{padding: 35px 0}
 .block-footer-bottom .footer{padding: 65px 0 15px; }
 .product-view .box-collateral .box-additional{
-display: block;
+    display: block;
 }
 /*checkout-top*/
 @keyframes animateprogress {
-  from {background:#efefef}
+    from {background:#efefef}
     to {background:#000}
 }
 @-webkit-keyframes animateprogress {
@@ -2099,6 +2100,8 @@ display: block;
 .clear{clear: both}
 .opc .buttons-set a.f-left{float:right!important;color:#ff0000;text-decoration:none}
 .opc .buttons-set a.f-left:hover{color:#f2bc4d}
+#checkout-step-login{ min-height: 290px}
+#checkout-step-login .buttons-set{position: absolute;bottom: 0;width: 28%}
 #checkout-step-login .buttons-set .button{float: none;width: 100%}
 .min-h200{min-height: 200px}
 #checkout-step-login .border-lr{border-left: 1px solid #f5f5f6;border-right: 1px solid #f5f5f6; padding: 0 15px}
@@ -2119,3 +2122,26 @@ label[for='billing:vat_id'] { display:none }
 #opc-billing .form-list .control, #opc-shipping .form-list .control {text-align: center; padding-left: 5%}
 #opc-billing .form-list .control label, #opc-shipping .form-list .control label {text-align: left;line-height: 10px}
 #opc-billing .form-list .validation-advice, #opc-shipping .form-list .validation-advice {width: 62%; float: right}
+@media screen and (max-width: 1024px) {
+    .checkout-top {height: 200px}
+    .progress-logo {float: none !important;margin: 0 auto}
+    .checkout-top-div1, .checkout-top-div2 {float: right; width: 85%}
+}
+@media screen and (max-width: 480px) {
+    .checkout-top {height: 125px}
+    .checkout-top .progress-logo {width: 100% !important;text-align: center;top: 10px}
+    .progress-itens {zoom: 0.7;top: -10px}    
+    .progress-itens-text{display: none}
+    .section.active{padding-bottom: 55px}
+    .section.active dl{text-align: center}    
+    .section.active thead{display: none}
+    #checkout-step-login .col3-set div{width: 100%;border:none;margin: 0;padding: 15px 0}
+    #checkout-step-login .buttons-set{position: relative;width: 100%}
+    .checkout-top-div2{width: 95%;margin-right: -10px}
+    .progress-itens #label-progress{width: 26%}    
+    #checkout-step-billing .wide label{max-height: 48px;overflow: hidden}
+    #opc-billing .form-list .control label, #opc-shipping .form-list .control label{line-height: 15px}
+    #logo-mercadopago{margin: 0 41%}   
+    
+    
+}
